@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './App.css';
-import Home from '../Components/home'
-import AsyncComponent from '../Components/AsyncComponent';
+import './Containers/App.css';
+import Home from './Components/home'
+import AsyncComponent from './Components/AsyncComponent';
 
 class App extends Component {
   constructor() {
@@ -15,7 +15,7 @@ class App extends Component {
   onRouteChange = (route) => {
     console.log(route);
     this.setState({ route });
-  }
+  } 
 
   render() {
     // Async rendering
@@ -23,16 +23,16 @@ class App extends Component {
       case 'home':
         return <Home onRouteChange={this.onRouteChange} route={this.state.route} />
       case 'about':
-        const AsyncAbout = AsyncComponent(() => import('../Components/about'))
+        const AsyncAbout = AsyncComponent(() => import('./Components/about'))
         return <AsyncAbout onRouteChange={this.onRouteChange} route={this.state.route} />
       case 'projects':
-        const AsyncProjects = AsyncComponent(() => import('../Components/projects'))
+        const AsyncProjects = AsyncComponent(() => import('./Components/projects'))
         return <AsyncProjects onRouteChange={this.onRouteChange} route={this.state.route} />
       case 'resume':
-        const AsyncResume = AsyncComponent(() => import('../Components/resume'))
+        const AsyncResume = AsyncComponent(() => import('./Components/resume'))
         return <AsyncResume onRouteChange={this.onRouteChange} route={this.state.route} />
       case 'contact':
-        const AsyncContact = AsyncComponent(() => import('../Components/contact'))
+        const AsyncContact = AsyncComponent(() => import('./Components/contact'))
         return <AsyncContact onRouteChange={this.onRouteChange} route={this.state.route} />
       default:
         return null
