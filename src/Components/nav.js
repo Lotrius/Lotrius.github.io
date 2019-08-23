@@ -1,4 +1,5 @@
 import React from 'react';
+import './css/nav.css'
 
 const Nav = ({ onRouteChange, route }) => {
     return (
@@ -10,7 +11,7 @@ const Nav = ({ onRouteChange, route }) => {
                     <li>
                         <button
                             id="home"
-                            className={"nav-item nav-link " + (route === 'home' ? "active" : '')}
+                            className={"tab nav-item nav-link " + (route === 'home' ? "active" : '')}
                             onClick={() => onRouteChange('home')}
                         >
                             Home
@@ -19,7 +20,7 @@ const Nav = ({ onRouteChange, route }) => {
                     <li>
                         <button
                             id="about"
-                            className={"nav-item nav-link " + (route === 'about' ? "active" : '')}
+                            className={"tab nav-item nav-link " + (route === 'about' ? "active" : '')}
                             onClick={() => onRouteChange('about')}
                         >
                             About
@@ -28,7 +29,7 @@ const Nav = ({ onRouteChange, route }) => {
                     <li>
                         <button
                             id="projects"
-                            className={"nav-item nav-link " + (route === 'projects' ? "active" : '')}
+                            className={"tab nav-item nav-link " + (route === 'projects' ? "active" : '')}
                             onClick={() => onRouteChange('projects')}
                         >
                             Projects
@@ -37,7 +38,7 @@ const Nav = ({ onRouteChange, route }) => {
                     <li>
                         <button
                             id="resume"
-                            className={"nav-item nav-link " + (route === 'resume' ? "active" : '')}
+                            className={"tab nav-item nav-link " + (route === 'resume' ? "active" : '')}
                             onClick={() => onRouteChange('resume')}
                         >
                             Resume
@@ -46,7 +47,7 @@ const Nav = ({ onRouteChange, route }) => {
                     <li>
                         <button
                             id="contact"
-                            className={"nav-item nav-link " + (route === 'contact' ? "active" : '')}
+                            className={"tab nav-item nav-link " + (route === 'contact' ? "active" : '')}
                             onClick={() => onRouteChange('contact')}
                         >
                             Contact
