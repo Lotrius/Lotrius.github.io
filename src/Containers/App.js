@@ -28,16 +28,15 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.route);
     return (
       <Router>
         <Nav />
         <Switch>
-          <Route exact component={Home} path="/" />
-          <Route exact component={About} path="/about" />
-          <Route exact component={Projects} path="/projects" />
-          <Route exact component={Resume} path="/resume" />
-          <Route exact component={Contact} path="/contact" />
+          <Route exact component={Home} path='/' />
+          <Route exact component={About} path='/about' />
+          <Route exact component={Projects} path='/projects' />
+          <Route exact component={Resume} path='/resume'/>
+          <Route exact component={Contact} path='/about' />
         </Switch>
       </Router>
     )
