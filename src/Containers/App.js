@@ -13,8 +13,10 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const route = localStorage.getItem('route');
-    this.setState({ route });
+    if (window.localStorage.length) {
+      const route = localStorage.getItem('route');
+      this.setState({ route });
+    }
   }
 
   onRouteChange = (route) => {
