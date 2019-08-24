@@ -1,14 +1,10 @@
 import React from 'react';
-import Nav from './Nav';
 import '../CSS/home.css';
 import '../CSS/general.css';
 
-const Home = ({ onRouteChange, route }) => {
+const Home = () => {
     return (
         <div>
-            {/* NAV BAR */}
-            <Nav onRouteChange={onRouteChange} route={route}></Nav>
-
             {/* IMAGE */}
             <div className="row home animated fadeIn">
                 <div className="col col-sm-auto picture">

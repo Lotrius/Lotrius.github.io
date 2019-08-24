@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import Home from '../Components/JS/Home'
-import AsyncComponent from '../Components/JS/AsyncComponent';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Nav from '../Components/JS/Nav.js';
+import Home from '../Components/JS/Home';
+import About from '../Components/JS/About.js';
+import Projects from '../Components/JS/Projects.js';
+import Resume from '../Components/JS/Resume.js';
+import Contact from '../Components/JS/Contact.js';
 
 class App extends Component {
   constructor() {
@@ -13,10 +18,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-    if (window.localStorage.length) {
-      const route = localStorage.getItem('route');
-      this.setState({ route });
-    }
+    const route = localStorage.getItem('route');
+    this.setState({ route });
   }
 
   onRouteChange = (route) => {
@@ -25,31 +28,19 @@ class App extends Component {
   }
 
   render() {
-    // Async rendering
-    switch (this.state.route) {
-      case 'home':
-        return <Home onRouteChange={this.onRouteChange} route={this.state.route} />;
-
-      case 'about':
-        const AsyncAbout = AsyncComponent(() => import('../Components/JS/About'));
-        return <AsyncAbout onRouteChange={this.onRouteChange} route={this.state.route} />;
-
-      case 'projects':
-        const AsyncProjects = AsyncComponent(() => import('../Components/JS/Projects'));
-        return <AsyncProjects onRouteChange={this.onRouteChange} route={this.state.route} />;
-
-      case 'resume':
-        const AsyncResume = AsyncComponent(() => import('../Components/JS/Resume'));
-        return <AsyncResume onRouteChange={this.onRouteChange} route={this.state.route} />;
-
-      case 'contact':
-        const AsyncContact = AsyncComponent(() => import('../Components/JS/Contact'));
-        return <AsyncContact onRouteChange={this.onRouteChange} route={this.state.route} />;
-
-      default:
-        return null;
-    }
-
+    console.log(this.state.route);
+    return (
+      <Router>
+        <Nav />
+        <Switch>
+          <Route exact component={Home} path="/" />
+          <Route exact component={About} path="/about" />
+          <Route exact component={Projects} path="/projects" />
+          <Route exact component={Resume} path="/resume" />
+          <Route exact component={Contact} path="/contact" />
+        </Switch>
+      </Router>
+    )
   }
 }
 
