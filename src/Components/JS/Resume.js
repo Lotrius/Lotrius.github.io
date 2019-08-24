@@ -1,14 +1,14 @@
 import React from 'react';
-import Nav from './nav'
+import Nav from './Nav'
 
-const Projects = ({ onRouteChange, route }) => {
+const Resume = ({ onRouteChange, route }) => {
     return (
         <div>
             <Nav onRouteChange={onRouteChange} route={route}></Nav>
-            <p>Projects</p>
+            <p>Resume</p>
         </div>
     )
 }
 
 
-export default Projects;
+export default Resume;

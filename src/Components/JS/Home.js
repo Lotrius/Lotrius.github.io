@@ -1,7 +1,7 @@
 import React from 'react';
-import Nav from './nav';
-import './css/home.css';
-import './css/general.css';
+import Nav from './Nav';
+import '../CSS/home.css';
+import '../CSS/general.css';
 
 const Home = ({ onRouteChange, route }) => {
     return (
@@ -13,7 +13,7 @@ const Home = ({ onRouteChange, route }) => {
             <div className="row home animated fadeIn">
                 <div className="col col-sm-auto picture">
                     <div id="profile">
-                        <img className="portrait" src={require("../Pics/me.jpg")} itemProp="image" alt="Avatar" />
+                        <img className="portrait" src={require("../../Pics/me.jpg")} itemProp="image" alt="Avatar" />
                     </div>
                 </div>
             </div>
@@ -21,7 +21,7 @@ const Home = ({ onRouteChange, route }) => {
             {/* DESCRIPTION */}
             <div className="col col-sm-auto info">
                 <div id="profile">
-                    <h1>Maybe something will go here????</h1>>
+                    <h1>Maybe something will go here????</h1>
                 </div>
             </div>
 
@@ -36,7 +36,7 @@ const Home = ({ onRouteChange, route }) => {
                                 rel="noopener noreferrer"
                                 target="_blank"
                             >
-                                <img className="social" src={require("../Pics/fb.png")} alt="Facebook" />
+                                <img className="social" src={require("../../Pics/fb.png")} alt="Facebook" />
                             </a>
                         </li>
                         <li>
@@ -46,7 +46,7 @@ const Home = ({ onRouteChange, route }) => {
                                 rel="noopener noreferrer"
                                 target="_blank"
                             >
-                                <img className="social" src={require("../Pics/github.png")} alt="GitHub" />
+                                <img className="social" src={require("../../Pics/github.png")} alt="GitHub" />
                             </a>
                         </li>
                         <li>
@@ -56,7 +56,7 @@ const Home = ({ onRouteChange, route }) => {
                                 rel="noopener noreferrer"
                                 target="_blank"
                             >
-                                <img className="social" src={require("../Pics/linkedin.png")} alt="LinkedIn" />
+                                <img className="social" src={require("../../Pics/linkedin.png")} alt="LinkedIn" />
                             </a>
                         </li>
                     </ul>

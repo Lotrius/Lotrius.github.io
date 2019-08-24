@@ -1,14 +1,14 @@
 import React from 'react';
-import Nav from './nav'
+import Nav from './Nav'
 
-const About = ({ onRouteChange , active, route }) => {
+const Contact = ({ onRouteChange, route }) => {
     return (
         <div>
             <Nav onRouteChange={onRouteChange} route={route}></Nav>
-            <p>About</p>
+            <p>Contact</p>
         </div>
     )
 }
 
 
-export default About;
+export default Contact;

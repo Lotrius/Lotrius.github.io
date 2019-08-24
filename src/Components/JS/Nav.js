@@ -1,11 +1,13 @@
 import React from 'react';
-import './css/nav.css'
+import '../CSS/nav.css'
 
 const Nav = ({ onRouteChange, route }) => {
     return (
         <nav className="row navbar navbar-expand-lg navbar-dark bg-dark">
-            <button className="navbar-brand name" onClick={() => onRouteChange('home')}>Solomon Kim</button>
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"></button>
+            <button className="navbar-brand" onClick={() => onRouteChange('home')}>Solomon Kim</button>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div className="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                 <ul className="nav navbar-nav">
                     <li>
