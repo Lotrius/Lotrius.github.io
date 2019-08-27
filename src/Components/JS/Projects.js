@@ -1,11 +1,24 @@
 import React from 'react';
 import ProjectDesc from './ProjectDesc';
 
-const Projects = ({ onRouteChange, route }) => {
+// Array of projects
+const projects = [
+    {
+        url: "todo-list",
+        name: "Todo List"
+    }
+]
+
+const Projects = () => {
+
+    // Return a project description of every project
     return (
-        <div>
-            <ProjectDesc />
-        </div>
+        projects.map((project, index) =>
+            <div>
+                <ProjectDesc key={index} project={project} />
+            </div>
+
+        )
     )
 }
 

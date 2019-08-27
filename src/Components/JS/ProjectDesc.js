@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const ProjectDesc = () => {
-    return (
-        <a href="https://lotrius.github.io/todo-list/" rel="noopener noreferrer" target="_blank">Todo List</a>
-    );
+class ProjectDesc extends Component {
+    render() {
+        const { project } = this.props;
+        return (
+            <a href={`https://lotrius.github.io/${project.url}/`} rel="noopener noreferrer" target="_blank" >{project.name}</a>
+        );
+    }
 }
 
 export default ProjectDesc;

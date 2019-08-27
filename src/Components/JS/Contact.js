@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Contact = ({ onRouteChange, route }) => {
+const Contact = () => {
     return (
         <div>
             <p>Contact</p>
