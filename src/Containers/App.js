@@ -1,43 +1,32 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component, Suspense } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import loadable from '@loadable/component';
 import Nav from '../Components/JS/Nav.js';
-import Home from '../Components/JS/Home';
-import About from '../Components/JS/About.js';
-import Projects from '../Components/JS/Projects.js';
-import Resume from '../Components/JS/Resume.js';
-import Contact from '../Components/JS/Contact.js';
+
+// Code splitting with loadable component
+const Home = loadable(() => import('../Components/JS/Home'));
+const About = loadable(() => import('../Components/JS/About'));
+const Projects = loadable(() => import('../Components/JS/Projects'));
+const Resume = loadable(() => import('../Components/JS/Resume'));
+const Contact = loadable(() => import('../Components/JS/Contact'));
+const Error = loadable(() => import('../Components/JS/Error'));
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      route: 'home',
-      component: null
-    };
-  }
-
-  componentDidMount() {
-    const route = localStorage.getItem('route');
-    this.setState({ route });
-  }
-
-  onRouteChange = (route) => {
-    // Change the route
-    this.setState({ route: route }, () => { localStorage.setItem('route', route) });
-  }
-
   render() {
     return (
       <Router>
         <Nav />
-        <Switch>
-          <Route exact component={Home} path='/' />
-          <Route exact component={About} path='/about' />
-          <Route exact component={Projects} path='/projects' />
-          <Route exact component={Resume} path='/resume'/>
-          <Route exact component={Contact} path='/about' />
-        </Switch>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Switch>
+            <Route exact component={Home} path='/' />
+            <Route exact component={About} path='/about' />
+            <Route exact component={Projects} path='/projects' />
+            <Route exact component={Resume} path='/resume' />
+            <Route exact component={Contact} path='/contact' />
+            <Route component={Error} path='*' />
+          </Switch>
+        </Suspense>
+
       </Router>
     )
   }

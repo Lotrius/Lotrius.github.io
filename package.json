@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://Lotrius.github.io/",
   "dependencies": {
+    "@loadable/component": "^5.10.2",
     "gh-pages": "^2.1.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
