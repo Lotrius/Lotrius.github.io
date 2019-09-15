@@ -8,6 +8,11 @@ const projects = [
         name: 'Todo List',
         desc: 'A simple todo list. Add, remove, and edit items. Click item to indicate completion.'
     },
+    {
+        url: 'juggling-graph',
+        name: 'Juggling Graph',
+        desc: 'Let\'s see how long it takes me to get 100 catches on 5 ball.'
+    }
 ]
 
 const Projects = () => {

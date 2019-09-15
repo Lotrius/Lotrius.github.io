@@ -16,6 +16,7 @@ class App extends Component {
     return (
       <Router>
         <Nav />
+        
         <Suspense fallback={<div>Loading...</div>}>
           <Switch>
             <Route exact component={Home} path='/' />
@@ -26,7 +27,7 @@ class App extends Component {
             <Route component={Error} path='*' />
           </Switch>
         </Suspense>
-
+        
       </Router>
     )
   }
