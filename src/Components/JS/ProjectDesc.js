@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import './test.css';
 
 const ProjectDesc = ({ project }) => {
-  const url = `../../Pics/${project.url}.jpg`;
+  const url = `https://lotrius.github.io/${project.url}/`;
 
   return (
     <div className="bg-light-green mw7 center pa4 mt4 br3-ns ba b--black-10 overflow-auto">
