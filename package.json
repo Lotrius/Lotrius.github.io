@@ -5,11 +5,14 @@
   "homepage": "https://Lotrius.github.io/",
   "dependencies": {
     "@loadable/component": "^5.10.2",
+    "eslint-config-airbnb": "^18.0.1",
     "gh-pages": "^2.1.1",
+    "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.1.1"
+    "react-scripts": "3.1.1",
+    "tachyons": "^4.11.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -17,7 +20,8 @@
     "test": "react-scripts test",
     "predeploy": "yarn run build",
     "deploy": "gh-pages -b master -d build",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint src"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -35,6 +39,14 @@
     ]
   },
   "devDependencies": {
-    "tachyons": "4.10.0"
+    "eslint-config-node": "^4.0.0",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.15.1",
+    "eslint-plugin-react-hooks": "^2.1.1",
+    "prettier": "^1.18.2"
   }
 }
