@@ -2,24 +2,29 @@
 import React from 'react';
 
 import '../CSS/general.css';
+import '../CSS/Home.css';
 import SocialMedia from './SocialMedia';
 
 const Home = () => {
   return (
     <div>
       {/* IMAGE */}
-      <div className="row animated fadeIn flex justify-center mt4 mb4">
-        <div className="cont flex justify-center mt2 ba bw1">
-          <div>
-            <img
-              src={require('../../Pics/me.jpg')}
-              itemProp="image"
-              alt="Avatar"
-            />
-          </div>
-          <div className="pl3 pr3 bl bw1">
-            <h1>idk man what do i even do</h1>
-          </div>
+      <div className="homescreen row animated fadeIn flex justify-center mt4 mb4">
+        {/* Pic */}
+        <div className="picdiv bl bt bb bw1">
+          <img
+            className="pic"
+            src={require('../../Pics/me.jpg')}
+            itemProp="image"
+            alt="Avatar"
+          />
+        </div>
+
+        {/* Desc */}
+        <div className="desc pl3 pr3 ba bw1">
+          <h1>sometimes I juggle but mostly I just drop</h1>
+          <h1>I also post very grainy pics of myself</h1>
+          <h1>cause I got nothing better</h1>
         </div>
       </div>
 

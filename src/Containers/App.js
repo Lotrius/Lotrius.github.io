@@ -16,8 +16,8 @@ const Error = loadable(() => import('../Components/JS/Error'));
 const App = () => {
   return (
     <Router>
-      <Nav />
       <Suspense fallback={<div>Loading...</div>}>
+        <Nav />
         <Switch>
           <Route exact component={Home} path="/" />
           <Route exact component={About} path="/about" />

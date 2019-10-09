@@ -1,0 +1,27 @@
+@media only screen and (max-width: 800px) {
+  .homescreen {
+    margin: 0 auto;
+    margin-top: 2em;
+    flex-direction: column !important;
+    width: 80%;
+  }
+  .picdiv {
+    border-right: 0.125rem solid black;
+    border-bottom: none !important;
+  }
+  .pic {
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+  .desc {
+    width: 100% !important;
+    margin-bottom: 50px;
+  }
+  footer {
+    width: 100vw !important;
+  }
+}
+
+@media only screen and (min-width: 801px) {
+}
