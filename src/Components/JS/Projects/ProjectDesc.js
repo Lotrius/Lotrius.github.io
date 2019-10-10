@@ -3,8 +3,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './test.css';
-
 const ProjectDesc = ({ project }) => {
   const url = `https://lotrius.github.io/${project.url}/`;
 
@@ -24,11 +22,11 @@ const ProjectDesc = ({ project }) => {
       <hr style={{ border: '1px solid black' }} />
 
       {/* Picture and description */}
-      <div className="mt4">
+      <div className="mt">
         <a href={url} rel="noopener noreferrer" target="_blank">
           <img
             className="fl mr3"
-            src={require(`../../Pics/${project.url}.jpg`)}
+            src={require(`../../../Pics/${project.url}.jpg`)}
             alt={project.name}
           />
         </a>

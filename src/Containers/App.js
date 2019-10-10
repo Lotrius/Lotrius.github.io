@@ -3,15 +3,15 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import loadable from '@loadable/component';
 import 'tachyons';
 
-import Nav from '../Components/JS/Nav';
+import Nav from '../Components/JS/Nav/Nav';
 
 // Code splitting with loadable component
-const Home = loadable(() => import('../Components/JS/Home'));
-const About = loadable(() => import('../Components/JS/About'));
-const Projects = loadable(() => import('../Components/JS/Projects'));
-const Resume = loadable(() => import('../Components/JS/Resume'));
-const Contact = loadable(() => import('../Components/JS/Contact'));
-const Error = loadable(() => import('../Components/JS/Error'));
+const Home = loadable(() => import('../Components/JS/Home/Home'));
+const About = loadable(() => import('../Components/JS/About/About'));
+const Projects = loadable(() => import('../Components/JS/Projects/Projects'));
+const Resume = loadable(() => import('../Components/JS/Resume/Resume'));
+const Contact = loadable(() => import('../Components/JS/Contact/Contact'));
+const Error = loadable(() => import('../Components/JS/Error/Error'));
 
 const App = () => {
   return (

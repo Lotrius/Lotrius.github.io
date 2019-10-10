@@ -19,11 +19,15 @@ const projects = [
 
 const Projects = () => {
   // Return a project description of every project
-  return projects.map(project => (
-    <div key={project.name}>
-      <ProjectDesc project={project} />
+  return (
+    <div className="mb4">
+      {projects.map(project => (
+        <div key={project.name}>
+          <ProjectDesc project={project} />
+        </div>
+      ))}
     </div>
-  ));
+  );
 };
 
 export default Projects;

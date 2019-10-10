@@ -31,7 +31,7 @@ const SocialMedia = () => {
       >
         <img
           className="pt4 pb2"
-          src={require(`../../Pics/${desc.id}.png`)}
+          src={require(`../../../Pics/${desc.id}.png`)}
           alt={desc.alt}
         />
       </a>

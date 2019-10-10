@@ -1,8 +1,8 @@
 /* eslint-disable global-require */
 import React from 'react';
 
-import '../CSS/general.css';
-import '../CSS/Home.css';
+import '../../CSS/general.css';
+import '../../CSS/Home.css';
 import SocialMedia from './SocialMedia';
 
 const Home = () => {
@@ -14,17 +14,18 @@ const Home = () => {
         <div className="picdiv bl bt bb bw1">
           <img
             className="pic"
-            src={require('../../Pics/me.jpg')}
+            src={require('../../../Pics/me.jpg')}
             itemProp="image"
             alt="Avatar"
           />
         </div>
 
         {/* Desc */}
-        <div className="desc pl3 pr3 ba bw1">
+        <div className="desc pl3 pr3 ba bw1 w-25">
           <h1>sometimes I juggle but mostly I just drop</h1>
-          <h1>I also post very grainy pics of myself</h1>
-          <h1>cause I got nothing better</h1>
+          <h1>
+            I also post very grainy pics of myself cause I got nothing better
+          </h1>
         </div>
       </div>
 

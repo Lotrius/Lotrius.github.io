@@ -4,6 +4,9 @@
   "private": true,
   "homepage": "https://Lotrius.github.io/",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/free-solid-svg-icons": "^5.11.2",
+    "@fortawesome/react-fontawesome": "^0.1.5",
     "@loadable/component": "^5.10.2",
     "eslint-config-airbnb": "^18.0.1",
     "gh-pages": "^2.1.1",
