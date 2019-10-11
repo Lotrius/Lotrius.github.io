@@ -7,6 +7,28 @@ import {
   faFacebook,
   faGithub
 } from '@fortawesome/free-brands-svg-icons';
+import SocialMedia from '../SocialMedia/SocialMedia';
+
+const socialMediaList = [
+  {
+    id: 'fb',
+    link: 'https://www.facebook.com/solomon.kim.319',
+    alt: 'Facebook',
+    pic: faFacebook
+  },
+  {
+    id: 'github',
+    link: 'https://github.com/Lotrius',
+    alt: 'Github',
+    pic: faLinkedin
+  },
+  {
+    id: 'linkedin',
+    link: 'https://www.linkedin.com/in/solomon-kim/',
+    alt: 'LinkedIn',
+    pic: faGithub
+  }
+];
 
 class Contact extends Component {
   constructor() {
@@ -127,7 +149,7 @@ class Contact extends Component {
           a server yet so it will not work.
         </p>
 
-        <div className="row mb4">
+        <div className="row mb6">
           {/* <!--Grid column form--> */}
           <div className="col-lg-12 mb-md-0 mb-5">
             <form
@@ -153,7 +175,7 @@ class Contact extends Component {
                       name="name"
                       className="form-control"
                     />
-                    <p>Your name</p>
+                    <p>Name</p>
                   </div>
                 </div>
 
@@ -167,7 +189,7 @@ class Contact extends Component {
                       name="email"
                       className="form-control"
                     />
-                    <p>Your email</p>
+                    <p>Email</p>
                   </div>
                 </div>
               </div>
@@ -200,7 +222,7 @@ class Contact extends Component {
                       rows="2"
                       className="form-control md-textarea"
                     />
-                    <p>Your message</p>
+                    <p>Message</p>
                   </div>
                 </div>
               </div>
@@ -222,37 +244,21 @@ class Contact extends Component {
         <div className="row">
           {/* Side Icons */}
           <div>
-            <h3>Other Contact Methods</h3>
+            <h2>Other Contact Methods</h2>
             <ul className="list-unstyled mb-0 row tc">
               {/* Phone number */}
               <li>
-                <FontAwesomeIcon className="mt-4 fa-2x" icon={faPhone} />
+                <FontAwesomeIcon className="mt-4 fa-3x" icon={faPhone} />
                 <p>+ 01 (917) 502-0579</p>
               </li>
 
               {/* Email */}
               <li>
-                <FontAwesomeIcon className="mt-4 fa-2x" icon={faEnvelope} />
+                <FontAwesomeIcon className="mt-4 fa-3x" icon={faEnvelope} />
                 <p>skim7420@gmail.com</p>
               </li>
 
-              {/* LinkedIn */}
-              <li>
-                <FontAwesomeIcon className="mt-4 fa-2x" icon={faLinkedin} />
-                <p>LinkedIn</p>
-              </li>
-
-              {/* Facebook */}
-              <li>
-                <FontAwesomeIcon className="mt-4 fa-2x" icon={faFacebook} />
-                <p>Facebook</p>
-              </li>
-
-              {/* Github */}
-              <li>
-                <FontAwesomeIcon className="mt-4 fa-2x" icon={faGithub} />
-                <p>Github</p>
-              </li>
+              <SocialMedia socialMediaList={socialMediaList} path="contact" />
             </ul>
           </div>
         </div>

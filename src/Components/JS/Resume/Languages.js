@@ -16,6 +16,7 @@ const languages = [
   }
 ];
 
+// TODO: REMOVE REDUNTANT CODE THROUGHOUT RESUME FILE
 class Languages extends Component {
   addDots = fluency => {
     const dot = [];
@@ -30,8 +31,7 @@ class Languages extends Component {
             width: '10px',
             backgroundColor: i >= fluency ? '#bbb' : '#8b0000',
             borderRadius: '50%',
-            display: 'inline-block',
-            transform: 'translateX(1200%)'
+            display: 'inline-block'
           }}
         />
       );
@@ -41,13 +41,8 @@ class Languages extends Component {
 
   render() {
     return languages.map(language => (
-      <li className="df relative overflow-auto pt3 pb3">
-        <h3
-          className="dib mr3 absolute"
-          style={{ top: '50%', transform: 'translateY(-50%)' }}
-        >
-          {language.language}
-        </h3>
+      <li className=" relative overflow-auto pt3 pb3">
+        <h3 className="mr3">{language.language}</h3>
         {this.addDots(language.fluency)}
       </li>
     ));
