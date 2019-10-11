@@ -149,7 +149,7 @@ class Contact extends Component {
           a server yet so it will not work.
         </p>
 
-        <div className="row mb6">
+        <div className="row mb5">
           {/* <!--Grid column form--> */}
           <div className="col-lg-12 mb-md-0 mb-5">
             <form
