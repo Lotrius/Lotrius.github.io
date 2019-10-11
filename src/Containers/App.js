@@ -4,6 +4,7 @@ import loadable from '@loadable/component';
 import 'tachyons';
 
 import Nav from '../Components/JS/Nav/Nav';
+import '../Components/CSS/general.css';
 
 // Code splitting with loadable component
 const Home = loadable(() => import('../Components/JS/Home/Home'));

@@ -1,7 +1,6 @@
 /* eslint-disable global-require */
 import React from 'react';
 
-import '../../CSS/general.css';
 import '../../CSS/Home.css';
 import SocialMedia from './SocialMedia';
 
