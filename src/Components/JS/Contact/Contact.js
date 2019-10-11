@@ -2,6 +2,11 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import {
+  faLinkedin,
+  faFacebook,
+  faGithub
+} from '@fortawesome/free-brands-svg-icons';
 
 class Contact extends Component {
   constructor() {
@@ -12,8 +17,13 @@ class Contact extends Component {
     this.message = React.createRef();
   }
 
+  /* ////////////////////////////////////////////////////////////////////////// */
+
   sendMail = event => {
     event.preventDefault(); // Prevent refresh when submitted
+
+    // Regular expression to check if email in right format
+    const emailRE = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     // Get text in fields
     const name = this.name.current.value;
@@ -24,19 +34,21 @@ class Contact extends Component {
     // If one of the fields is blank,
     if (!(name && email && subject && message)) {
       // If user sent a message before and there's a success message, remove it
-      if (document.getElementById('success')) {
-        const successMessage = document.getElementById('success');
-        successMessage.parentNode.removeChild(successMessage);
-      }
+      this.removeCurrentMessage();
 
       // If there's no error message already, add one
-      if (!document.getElementById('fillout-error')) {
-        const node = document.createElement('p');
-        node.setAttribute('id', 'fillout-error');
-        const textnode = document.createTextNode('Please fill out all fields');
-        node.appendChild(textnode);
-        document.getElementById('contact-form').appendChild(node);
-      }
+      this.addMessage('fields');
+
+      return;
+    }
+
+    if (!emailRE.test(email)) {
+      // Remove current if there is one
+      this.removeCurrentMessage();
+
+      // If there's no success message already, add one
+      this.addMessage('email');
+
       return;
     }
 
@@ -54,27 +66,50 @@ class Contact extends Component {
 
     event.target.reset(); // Reset fields
 
-    // Remove error if it's there
-    if (document.getElementById('fillout-error')) {
-      const error = document.getElementById('fillout-error');
-      error.parentNode.removeChild(error);
-    }
+    // Remove current if there is one
+    this.removeCurrentMessage();
 
     // If there's no success message already, add one
-    if (!document.getElementById('success')) {
-      const node = document.createElement('p');
-      node.setAttribute('id', 'success');
-      const textnode = document.createTextNode('Message sent!');
-      node.appendChild(textnode);
-      document.getElementById('contact-form').appendChild(node);
+    this.addMessage('success');
+  };
+
+  /* ////////////////////////////////////////////////////////////////////////// */
+
+  addMessage = type => {
+    // Create messages
+    const node = document.createElement('p');
+    node.setAttribute('id', 'submit-message');
+    const textnode = document.createTextNode('');
+    node.appendChild(textnode);
+
+    // Set text
+    textnode.nodeValue =
+      // eslint-disable-next-line no-nested-ternary
+      type === 'fields'
+        ? 'Please fill out all fields'
+        : type === 'email'
+        ? 'Invalid email'
+        : 'Message sent!';
+
+    document.getElementById('contact-form').appendChild(node); // Append
+  };
+
+  /* ////////////////////////////////////////////////////////////////////////// */
+
+  removeCurrentMessage = () => {
+    if (document.getElementById('submit-message')) {
+      const currentSubmitMessage = document.getElementById('submit-message');
+      currentSubmitMessage.parentNode.removeChild(currentSubmitMessage);
     }
   };
+
+  /* ////////////////////////////////////////////////////////////////////////// */
 
   render() {
     return (
       <section className="mb-4 ml4 mr4">
         {/* <!--Section heading--> */}
-        <h2 className="h1-responsive font-weight-bold text-center my-4">
+        <h2 className="shake h1-responsive font-weight-bold text-center my-4">
           Contact
         </h2>
 
@@ -84,9 +119,9 @@ class Contact extends Component {
           hesitate to do so. I will try to get back to you ASAP.
         </p>
 
-        <div className="row">
+        <div className="row mb4">
           {/* <!--Grid column form--> */}
-          <div className="col-md-9 mb-md-0 mb-5">
+          <div className="col-lg-12 mb-md-0 mb-5">
             <form
               id="contact-form"
               name="contact-form"
@@ -174,22 +209,44 @@ class Contact extends Component {
 
             <div className="status" />
           </div>
+        </div>
 
+        <div className="row">
           {/* Side Icons */}
-          <div className="col-md-3 text-center">
-            <ul className="list-unstyled mb-0">
+          <div>
+            <h3>Other Contact Methods</h3>
+            <ul className="list-unstyled mb-0 row tc">
+              {/* Phone number */}
               <li>
                 <FontAwesomeIcon className="mt-4 fa-2x" icon={faPhone} />
                 <p>+ 01 (917) 502-0579</p>
               </li>
 
+              {/* Email */}
               <li>
                 <FontAwesomeIcon className="mt-4 fa-2x" icon={faEnvelope} />
                 <p>skim7420@gmail.com</p>
               </li>
+
+              {/* LinkedIn */}
+              <li>
+                <FontAwesomeIcon className="mt-4 fa-2x" icon={faLinkedin} />
+                <p>LinkedIn</p>
+              </li>
+
+              {/* Facebook */}
+              <li>
+                <FontAwesomeIcon className="mt-4 fa-2x" icon={faFacebook} />
+                <p>Facebook</p>
+              </li>
+
+              {/* Github */}
+              <li>
+                <FontAwesomeIcon className="mt-4 fa-2x" icon={faGithub} />
+                <p>Github</p>
+              </li>
             </ul>
           </div>
-          {/* <!--Grid column--> */}
         </div>
       </section>
     );
