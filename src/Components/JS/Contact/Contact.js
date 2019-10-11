@@ -81,7 +81,10 @@ class Contact extends Component {
     node.setAttribute('id', 'submit-message');
     const textnode = document.createTextNode('');
     node.appendChild(textnode);
-    node.setAttribute('class', 'animated shake red');
+    node.setAttribute(
+      'class',
+      `${type === 'success' ? 'green' : 'animated shake red'}`
+    );
 
     // Set text
     textnode.nodeValue =
@@ -118,6 +121,10 @@ class Contact extends Component {
         <p className="text-center w-responsive mx-auto mb-5">
           If you would like to contact me for whatever reason, please do not
           hesitate to do so. I will try to get back to you ASAP.
+        </p>
+        <p className="text-center w-responsive mx-auto mb-5">
+          NOTE: All the logic for the contact form exists, but I did not set up
+          a server yet so it will not work.
         </p>
 
         <div className="row mb4">
