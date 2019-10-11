@@ -81,6 +81,7 @@ class Contact extends Component {
     node.setAttribute('id', 'submit-message');
     const textnode = document.createTextNode('');
     node.appendChild(textnode);
+    node.setAttribute('class', 'animated shake red');
 
     // Set text
     textnode.nodeValue =

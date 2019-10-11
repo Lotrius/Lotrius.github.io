@@ -4,11 +4,12 @@
   "private": true,
   "homepage": "https://Lotrius.github.io/",
   "dependencies": {
-    "@fortawesome/free-brands-svg-icons": "^5.11.2",
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/free-brands-svg-icons": "^5.11.2",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@fortawesome/react-fontawesome": "^0.1.5",
     "@loadable/component": "^5.10.2",
+    "animate.css": "^3.7.2",
     "gh-pages": "^2.1.1",
     "nodemailer": "^6.3.1",
     "prop-types": "^15.7.2",

@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import loadable from '@loadable/component';
 import 'tachyons';
+import 'animate.css';
 
 import Nav from '../Components/JS/Nav/Nav';
 import '../Components/CSS/general.css';
