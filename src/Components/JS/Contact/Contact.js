@@ -9,6 +9,8 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import SocialMedia from '../SocialMedia/SocialMedia';
 
+import '../../CSS/Contact.css';
+
 class Contact extends Component {
   constructor() {
     super();
@@ -251,25 +253,29 @@ class Contact extends Component {
         <div className="row">
           {/* Side Icons */}
           <div>
-            <h2>Other Contact Methods</h2>
+            <h2 className="contact">Other Contact Methods</h2>
             <ul className="list-unstyled mb-0 row tc">
-              {/* Phone number */}
-              <li>
-                <FontAwesomeIcon className="mt-4 fa-3x" icon={faPhone} />
-                <p>+ 01 (917) 502-0579</p>
-              </li>
+              <div className="row contact">
+                {/* Phone number */}
+                <li>
+                  <FontAwesomeIcon className="mt-4 fa-3x" icon={faPhone} />
+                  <p>(917) 502-0579</p>
+                </li>
 
-              {/* Email */}
-              <li>
-                <FontAwesomeIcon className="mt-4 fa-3x" icon={faEnvelope} />
-                <p>skim7420@gmail.com</p>
-              </li>
+                {/* Email */}
+                <li>
+                  <FontAwesomeIcon className="mt-4 fa-3x" icon={faEnvelope} />
+                  <p>skim7420@gmail.com</p>
+                </li>
+              </div>
 
               {/* Social Media List */}
-              <SocialMedia
-                socialMediaList={this.socialMediaList}
-                path="contact"
-              />
+              <div className="contact row">
+                <SocialMedia
+                  socialMediaList={this.socialMediaList}
+                  path="contact"
+                />
+              </div>
             </ul>
           </div>
         </div>
