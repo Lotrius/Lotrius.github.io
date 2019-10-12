@@ -47,6 +47,17 @@ class Contact extends Component {
 
   /* ////////////////////////////////////////////////////////////////////////// */
 
+  componentDidMount() {
+    // Call server immediately upon loading so that by the time
+    // user gets to contact page, it's open
+    // fetch('https://FF.com/', {
+    //   method: 'get',
+    //   headers: { 'Content-Type': 'application/json' }
+    // });
+  }
+
+  /* ////////////////////////////////////////////////////////////////////////// */
+
   sendMail = event => {
     event.preventDefault(); // Prevent refresh when submitted
 
@@ -73,7 +84,7 @@ class Contact extends Component {
     }
 
     // Otherwise call to backend to send mail with appropriate fields
-    fetch('http://localhost:3000/send', {
+    fetch('https://FF/send', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -144,10 +155,6 @@ class Contact extends Component {
         <p className="text-center w-responsive mx-auto mb-5">
           If you would like to contact me for whatever reason, please do not
           hesitate to do so. I will try to get back to you ASAP.
-        </p>
-        <p className="text-center w-responsive mx-auto mb-5">
-          NOTE: All the logic for the contact form exists, but I did not set up
-          a server yet so it will not work.
         </p>
 
         <div className="row mb5">

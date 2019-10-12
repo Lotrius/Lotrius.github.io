@@ -2,6 +2,7 @@ import React from 'react';
 
 const jobs = [
   {
+    key: 'IT',
     title:
       'IT Generalist - Industrial Bank of Korea New York Branch (New York, NY)',
     dates: 'October 2018 - April 2019',
@@ -13,6 +14,7 @@ const jobs = [
     ]
   },
   {
+    key: 'BFMTreasurer',
     title:
       'Barefoot Monkeys Treasurer - Vassar College Barefoot Monkeys (Poughkeepsie, NY)',
     dates: 'August 2017 – May 2018',
@@ -23,6 +25,7 @@ const jobs = [
     ]
   },
   {
+    key: 'Drill',
     title:
       'Japanese Language Drill Instructor - Vassar College (Poughkeepsie, NY)',
     dates: 'September 2016 – May 2018',
@@ -32,6 +35,7 @@ const jobs = [
     ]
   },
   {
+    key: 'Research',
     title:
       'Hispanic Studies Research Assistant - Vassar College (Poughkeepsie, NY)',
     dates: 'September 2014 – May 2016',
@@ -41,12 +45,13 @@ const jobs = [
 
 const Experience = () => {
   return jobs.map(experience => (
-    <div className="bb">
+    <div key={experience.key} className="bb">
       <h3>{experience.title}</h3>
       <h3>{experience.dates}</h3>
       <ul>
-        {experience.duties.map(duties => (
-          <li>
+        {experience.duties.map((duties, index) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <li key={experience.key + index}>
             <h5>{duties}</h5>
           </li>
         ))}
