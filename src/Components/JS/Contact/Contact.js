@@ -9,27 +9,6 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import SocialMedia from '../SocialMedia/SocialMedia';
 
-const socialMediaList = [
-  {
-    id: 'fb',
-    link: 'https://www.facebook.com/solomon.kim.319',
-    alt: 'Facebook',
-    pic: faFacebook
-  },
-  {
-    id: 'github',
-    link: 'https://github.com/Lotrius',
-    alt: 'Github',
-    pic: faLinkedin
-  },
-  {
-    id: 'linkedin',
-    link: 'https://www.linkedin.com/in/solomon-kim/',
-    alt: 'LinkedIn',
-    pic: faGithub
-  }
-];
-
 class Contact extends Component {
   constructor() {
     super();
@@ -37,6 +16,31 @@ class Contact extends Component {
     this.email = React.createRef();
     this.subject = React.createRef();
     this.message = React.createRef();
+    this.socialMediaList = [
+      {
+        id: 'fb',
+        link: 'https://www.facebook.com/solomon.kim.319',
+        alt: 'Facebook',
+        pic: faFacebook
+      },
+      {
+        id: 'github',
+        link: 'https://github.com/Lotrius',
+        alt: 'Github',
+        pic: faGithub
+      },
+      {
+        id: 'linkedin',
+        link: 'https://www.linkedin.com/in/solomon-kim/',
+        alt: 'LinkedIn',
+        pic: faLinkedin
+      }
+    ];
+    this.state = {
+      submitText: '',
+      visibile: 'hidden',
+      animation: ''
+    };
   }
 
   /* ////////////////////////////////////////////////////////////////////////// */
@@ -55,22 +59,14 @@ class Contact extends Component {
 
     // If one of the fields is blank,
     if (!(name && email && subject && message)) {
-      // If user sent a message before and there's a success message, remove it
-      this.removeCurrentMessage();
-
       // If there's no error message already, add one
       this.addMessage('fields');
-
       return;
     }
 
     if (!emailRE.test(email)) {
-      // Remove current if there is one
-      this.removeCurrentMessage();
-
       // If there's no success message already, add one
       this.addMessage('email');
-
       return;
     }
 
@@ -88,9 +84,6 @@ class Contact extends Component {
 
     event.target.reset(); // Reset fields
 
-    // Remove current if there is one
-    this.removeCurrentMessage();
-
     // If there's no success message already, add one
     this.addMessage('success');
   };
@@ -98,40 +91,46 @@ class Contact extends Component {
   /* ////////////////////////////////////////////////////////////////////////// */
 
   addMessage = type => {
-    // Create messages
-    const node = document.createElement('p');
-    node.setAttribute('id', 'submit-message');
-    const textnode = document.createTextNode('');
-    node.appendChild(textnode);
-    node.setAttribute(
-      'class',
-      `${type === 'success' ? 'green' : 'animated shake red'}`
-    );
+    this.setState({ visibile: 'visible' }); // Set element to visible
 
     // Set text
-    textnode.nodeValue =
-      // eslint-disable-next-line no-nested-ternary
-      type === 'fields'
-        ? 'Please fill out all fields'
-        : type === 'email'
-        ? 'Invalid email'
-        : 'Message sent!';
-
-    document.getElementById('contact-form').appendChild(node); // Append
-  };
-
-  /* ////////////////////////////////////////////////////////////////////////// */
-
-  removeCurrentMessage = () => {
-    if (document.getElementById('submit-message')) {
-      const currentSubmitMessage = document.getElementById('submit-message');
-      currentSubmitMessage.parentNode.removeChild(currentSubmitMessage);
+    switch (type) {
+      case 'fields':
+        this.changeAnimationAndText(type);
+        break;
+      case 'email':
+        this.changeAnimationAndText(type);
+        break;
+      default:
+        this.setState({ submitText: 'Message sent!', animation: 'green' });
     }
   };
 
   /* ////////////////////////////////////////////////////////////////////////// */
 
+  changeAnimationAndText = type => {
+    // Change to appropriate message and animation
+    this.setState(
+      {
+        submitText:
+          type === 'fields'
+            ? 'Please fill out all fields'
+            : 'Please enter a valid email address',
+        animation: 'red'
+      },
+      () =>
+        setTimeout(() => {
+          this.setState({
+            animation: 'animated shake red'
+          });
+        }, 100)
+    );
+  };
+
+  /* ////////////////////////////////////////////////////////////////////////// */
+
   render() {
+    const { submitText, visibile, animation } = this.state;
     return (
       <section className="mb-4 ml4 mr4">
         {/* <!--Section heading--> */}
@@ -235,9 +234,17 @@ class Contact extends Component {
                   value="Submit"
                 />
               </div>
-            </form>
 
-            <div className="status" />
+              {/* Submit message */}
+              <p
+                id="submit-message"
+                className={animation}
+                style={{ visibility: visibile }}
+              >
+                &zwnj;
+                {submitText}
+              </p>
+            </form>
           </div>
         </div>
 
@@ -258,7 +265,11 @@ class Contact extends Component {
                 <p>skim7420@gmail.com</p>
               </li>
 
-              <SocialMedia socialMediaList={socialMediaList} path="contact" />
+              {/* Social Media List */}
+              <SocialMedia
+                socialMediaList={this.socialMediaList}
+                path="contact"
+              />
             </ul>
           </div>
         </div>
