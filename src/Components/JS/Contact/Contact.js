@@ -73,7 +73,7 @@ class Contact extends Component {
     }
 
     // Otherwise call to backend to send mail with appropriate fields
-    fetch('https://FFF/send', {
+    fetch('https://FFF', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

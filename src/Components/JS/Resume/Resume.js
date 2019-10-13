@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faBriefcase,
   faSchool,
@@ -12,6 +11,7 @@ import { faWindows } from '@fortawesome/free-brands-svg-icons';
 import '../../CSS/Resume.css';
 import Experience from './Experience';
 import Fluency from './Fluency';
+import ResumeItem from './ResumeItem';
 
 class Resume extends Component {
   constructor() {
@@ -61,6 +61,80 @@ class Resume extends Component {
         fluency: 10
       }
     ];
+
+    // Resume items
+    this.experience = {
+      title: 'Experience',
+      icon: faBriefcase,
+      details: <Experience />
+    };
+    this.education = {
+      title: 'Education',
+      icon: faSchool,
+      details: (
+        <div>
+          <h3>Vassar College (Poughkeepsie, NY)</h3>
+          <ul>
+            <li>
+              <h5>GPA: 3.76</h5>
+            </li>
+            <li>
+              <h5>Bachelor of Arts in Computer Science</h5>
+            </li>
+          </ul>
+        </div>
+      )
+    };
+    this.extracurriculars = {
+      title: 'Extracurricular Activities',
+      icon: faVolleyballBall,
+      details: (
+        <div>
+          <h3>Barefoot Monkeys</h3>
+          <ul>
+            <li key="bfm">
+              <h5>
+                Put on circus shows and performances in Vassar College’s
+                student-run circus troupe
+              </h5>
+            </li>
+          </ul>
+        </div>
+      )
+    };
+    this.computer = {
+      title: 'Computer Languages/Frameworks',
+      icon: faLaptopCode,
+      details: (
+        <div>
+          <ul>
+            <Fluency list={this.compLanguages} />
+          </ul>
+        </div>
+      )
+    };
+    this.spokenLanguages = {
+      title: 'Languages',
+      icon: faLanguage,
+      details: (
+        <div>
+          <ul>
+            <Fluency list={this.languages} />
+          </ul>
+        </div>
+      )
+    };
+    this.softwarePrograms = {
+      title: 'Software',
+      icon: faWindows,
+      details: (
+        <div>
+          <ul>
+            <Fluency list={this.software} />
+          </ul>
+        </div>
+      )
+    };
   }
 
   render() {
@@ -77,99 +151,22 @@ class Resume extends Component {
         </a>
 
         {/* Experience */}
-        <div className="row bb bt flex items-center justify-center">
-          <div className="col-3 tc">
-            <h1>Experience</h1>
-            <FontAwesomeIcon className="mt-4 fa-3x" icon={faBriefcase} />
-          </div>
-
-          <div className="col-9 bl">
-            <Experience />
-          </div>
-        </div>
+        <ResumeItem item={this.experience} />
 
         {/* Education */}
-        <div className="row bb flex items-stretch items-center justify-center">
-          <div className="col-3 tc pb4">
-            <h1>Education</h1>
-            <FontAwesomeIcon className="tc mt-4 fa-3x" icon={faSchool} />
-          </div>
-
-          <div className="col-9 bl">
-            <h3>Vassar College (Poughkeepsie, NY)</h3>
-            <ul>
-              <li>
-                <h5>GPA: 3.76</h5>
-              </li>
-              <li>
-                <h5>Bachelor of Arts in Computer Science</h5>
-              </li>
-            </ul>
-          </div>
-        </div>
+        <ResumeItem item={this.education} />
 
         {/* Extracurriculars */}
-        <div className="row bb flex items-stretch items-center justify-center">
-          <div className="col-3 tc pb4">
-            <h1>Extracurricular Activities</h1>
-            <FontAwesomeIcon
-              className="tc mt-4 fa-3x"
-              icon={faVolleyballBall}
-            />
-          </div>
-
-          <div className="col-9 bl">
-            <h3>Barefoot Monkeys</h3>
-            <ul>
-              <li key="bfm">
-                <h5>
-                  Put on circus shows and performances in Vassar College’s
-                  student-run circus troupe
-                </h5>
-              </li>
-            </ul>
-          </div>
-        </div>
+        <ResumeItem item={this.extracurriculars} />
 
         {/* Computer languages */}
-        <div className="row bb flex items-center justify-center">
-          <div className="col-3 tc">
-            <h1>Computer Languages/Frameworks</h1>
-            <FontAwesomeIcon className="tc mt-4 fa-3x" icon={faLaptopCode} />
-          </div>
+        <ResumeItem item={this.computer} />
 
-          <div className="col-9 bl">
-            <ul>
-              <Fluency list={this.compLanguages} />
-            </ul>
-          </div>
-        </div>
+        {/* Languages */}
+        <ResumeItem item={this.spokenLanguages} />
 
-        <div className="row bb flex items-center justify-center">
-          <div className="col-3 tc">
-            <h1>Languages</h1>
-            <FontAwesomeIcon className="tc mt-4 fa-3x" icon={faLanguage} />
-          </div>
-
-          <div className="col-9 bl">
-            <ul>
-              <Fluency list={this.languages} />
-            </ul>
-          </div>
-        </div>
-
-        <div className="row flex items-center justify-center">
-          <div className="col-3 tc">
-            <h1>Software</h1>
-            <FontAwesomeIcon className="tc mt-4 fa-3x" icon={faWindows} />
-          </div>
-
-          <div className="col-9 bl">
-            <ul>
-              <Fluency list={this.software} />
-            </ul>
-          </div>
-        </div>
+        {/* Software */}
+        <ResumeItem item={this.softwarePrograms} />
       </div>
     );
   }
