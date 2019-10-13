@@ -73,7 +73,7 @@ class Contact extends Component {
     }
 
     // Otherwise call to backend to send mail with appropriate fields
-    fetch('https://FFF', {
+    fetch('https://thawing-mesa-37094.herokuapp.com/send', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
