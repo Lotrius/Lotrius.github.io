@@ -9,7 +9,6 @@ import '../Components/CSS/general.css';
 
 // Code splitting with loadable component
 const Home = loadable(() => import('../Components/JS/Home/Home'));
-const About = loadable(() => import('../Components/JS/About/About'));
 const Projects = loadable(() => import('../Components/JS/Projects/Projects'));
 const Resume = loadable(() => import('../Components/JS/Resume/Resume'));
 const Contact = loadable(() => import('../Components/JS/Contact/Contact'));
@@ -22,7 +21,6 @@ const App = () => {
         <Nav />
         <Switch>
           <Route exact component={Home} path="/" />
-          <Route exact component={About} path="/about" />
           <Route exact component={Projects} path="/projects" />
           <Route exact component={Resume} path="/resume" />
           <Route exact component={Contact} path="/contact" />

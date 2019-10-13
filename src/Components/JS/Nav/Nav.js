@@ -40,16 +40,6 @@ const Nav = () => {
               exact
               className="Nav__link tab nav-item nav-link"
               activeClassName="active"
-              to="/about"
-            >
-              About
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              exact
-              className="Nav__link tab nav-item nav-link"
-              activeClassName="active"
               to="/projects"
             >
               Projects

@@ -9,57 +9,59 @@ import {
 import { faWindows } from '@fortawesome/free-brands-svg-icons';
 
 import '../../CSS/Resume.css';
+
 import Experience from './Experience';
 import Fluency from './Fluency';
 import ResumeItem from './ResumeItem';
+import DiffResumeItem from './DiffResumeItem';
 
 class Resume extends Component {
   constructor() {
     super();
     // Fluencies
     this.compLanguages = [
-      { item: 'PostgreSQL', fluency: 9 },
+      { item: 'PostgreSQL', fluency: 90 },
       {
         item: 'HTML',
-        fluency: 8
+        fluency: 80
       },
       {
         item: 'CSS',
-        fluency: 8
+        fluency: 80
       },
       {
         item: 'JavaScript',
-        fluency: 8
+        fluency: 80
       },
       {
         item: 'React',
-        fluency: 8
+        fluency: 80
       }
     ];
     this.languages = [
-      { item: 'English', fluency: 10 },
+      { item: 'English', fluency: 100 },
       {
         item: 'Korean',
-        fluency: 6
+        fluency: 60
       },
       {
         item: 'Spanish',
-        fluency: 6
+        fluency: 60
       },
       {
         item: 'Japanese',
-        fluency: 6
+        fluency: 60
       }
     ];
     this.software = [
-      { item: 'Microsoft Word', fluency: 10 },
+      { item: 'Microsoft Word', fluency: 100 },
       {
         item: 'Microsoft Excel',
-        fluency: 10
+        fluency: 100
       },
       {
         item: 'Visual Studio Code',
-        fluency: 10
+        fluency: 100
       }
     ];
 
@@ -152,22 +154,29 @@ class Resume extends Component {
         </a>
 
         {/* Experience */}
-        <ResumeItem item={this.experience} />
+        <div className="flex justify-around">
+          <DiffResumeItem item={this.experience} />
+        </div>
 
-        {/* Education */}
-        <ResumeItem item={this.education} />
+        <div className="row flex justify-around">
+          {/* Education */}
 
-        {/* Extracurriculars */}
-        <ResumeItem item={this.extracurriculars} />
+          <DiffResumeItem item={this.education} />
 
-        {/* Computer languages */}
-        <ResumeItem item={this.computer} />
+          {/* Extracurriculars */}
+          <DiffResumeItem item={this.extracurriculars} />
+        </div>
 
-        {/* Languages */}
-        <ResumeItem item={this.spokenLanguages} />
+        <div className="row flex justify-around">
+          {/* Computer languages */}
+          <DiffResumeItem item={this.computer} />
 
-        {/* Software */}
-        <ResumeItem item={this.softwarePrograms} />
+          {/* Languages */}
+          <DiffResumeItem item={this.spokenLanguages} />
+
+          {/* Software */}
+          <DiffResumeItem item={this.softwarePrograms} />
+        </div>
       </div>
     );
   }

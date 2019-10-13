@@ -3,22 +3,20 @@
     margin: 0 auto;
     margin-top: 2em;
     flex-direction: column !important;
-    width: 80%;
+    width: 100%;
   }
   .picdiv {
-    border-right: 0.125rem solid black;
-    border-bottom: none !important;
+    width: 100% !important;
   }
   .pic {
     justify-content: center !important;
     align-items: center !important;
-    width: 100% !important;
+    width: 75% !important;
   }
   .desc {
     width: 100% !important;
-    margin-bottom: 50px;
   }
-  footer {
-    width: 100vw !important;
+  li {
+    display: list-item;
   }
 }

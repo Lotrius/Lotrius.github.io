@@ -1,13 +1,13 @@
 /* eslint-disable global-require */
 import React from 'react';
-
-import '../../CSS/Home.css';
 import {
   faLinkedin,
   faFacebook,
   faGithub
 } from '@fortawesome/free-brands-svg-icons';
 import SocialMedia from '../SocialMedia/SocialMedia';
+
+import '../../CSS/Home.css';
 
 const socialMediaList = [
   {
@@ -20,13 +20,13 @@ const socialMediaList = [
     id: 'github',
     link: 'https://github.com/Lotrius',
     alt: 'Github',
-    pic: faLinkedin
+    pic: faGithub
   },
   {
     id: 'linkedin',
     link: 'https://www.linkedin.com/in/solomon-kim/',
     alt: 'LinkedIn',
-    pic: faGithub
+    pic: faLinkedin
   }
 ];
 
@@ -34,40 +34,50 @@ const Home = () => {
   return (
     <div>
       {/* IMAGE */}
-      <div className="homescreen row animated fadeIn flex justify-center mt4 mb4">
-        {/* Pic */}
-        <div className="picdiv bl bt bb bw1">
+      <div className="homescreen row animated fadeIn flex justify-center mt5 mb4">
+        {/* Left column */}
+        <div className="picdiv w-25 mr6 tc">
           <img
-            className="pic"
-            src={require('../../../Pics/me.jpg')}
+            className="pic br-100 w-60"
+            src={require('../../../Pics/me.png')}
             itemProp="image"
             alt="Avatar"
           />
+
+          {/* Name */}
+          <h2 className="pt2">Solomon Kim</h2>
+
+          {/* Social Media */}
+          <div
+            className="tc w-70 flex justify-around"
+            style={{ margin: '0 auto' }}
+          >
+            <SocialMedia socialMediaList={socialMediaList} path="home" />
+          </div>
         </div>
 
-        {/* Desc */}
-        <div className="desc pl3 pr3 ba bw1 w-25">
-          <h1>sometimes I juggle but mostly I just drop</h1>
-          <h1>
-            I also post very grainy pics of myself cause I got nothing better
-          </h1>
+        {/* Description */}
+        <div className="desc w-40">
+          <p className="f1 b">Bio</p>
+          <p className="f3">
+            I spend most of my days either coding things such as this website,
+            juggling (read: dropping), or at the gym.
+          </p>
+          <p className="f3">
+            Ultimately I would like to be able to take my experience building
+            different types of applications into things like localization
+            projects.
+          </p>
+          <p className="f3">
+            I wonder how much more space I have to fill up before it looks
+            marginally acceptable and not just full of empty space. Yeah that
+            looks about good.
+          </p>
+          <p style={{ color: 'rgb(243, 243, 237)' }}>
+            i&apos;m v confused a lot tbh
+          </p>
         </div>
       </div>
-
-      {/* FOOTER */}
-      <footer
-        className="bg-dark overflow-auto relative w-100"
-        style={{
-          height: '-3em',
-          marginTop: '10em'
-        }}
-      >
-        <div>
-          <ul className="overflow-auto">
-            <SocialMedia socialMediaList={socialMediaList} path="home" />
-          </ul>
-        </div>
-      </footer>
     </div>
   );
 };

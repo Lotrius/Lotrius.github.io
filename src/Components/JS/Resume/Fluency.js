@@ -4,23 +4,36 @@ import PropTypes from 'prop-types';
 // TODO: REMOVE REDUNTANT CODE THROUGHOUT RESUME FILE
 class Fluency extends Component {
   addDots = fluency => {
-    const dot = [];
+    const dot = (
+      <div className="progress">
+        <div
+          className="progress-bar progress-bar-striped"
+          role="progressbar"
+          style={{ width: `${fluency}%` }}
+          aria-valuenow={fluency}
+          aria-valuemin="0"
+          aria-valuemax="100"
+        >
+          {`${fluency}%`}
+        </div>
+      </div>
+    );
 
-    for (let i = 0; i < 10; i++) {
-      dot.push(
-        <span
-          className="mr1"
-          key={i}
-          style={{
-            height: '10px',
-            width: '10px',
-            backgroundColor: i >= fluency ? '#bbb' : '#8b0000',
-            borderRadius: '50%',
-            display: 'inline-block'
-          }}
-        />
-      );
-    }
+    // for (let i = 0; i < 10; i++) {
+    //   dot.push(
+    //     <span
+    //       className="mr1"
+    //       key={i}
+    //       style={{
+    //         height: '10px',
+    //         width: '10px',
+    //         backgroundColor: i >= fluency ? '#bbb' : '#8b0000',
+    //         borderRadius: '50%',
+    //         display: 'inline-block'
+    //       }}
+    //     />
+    //   );
+    // }
     return dot;
   };
 
