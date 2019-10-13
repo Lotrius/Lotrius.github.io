@@ -45,7 +45,7 @@ const jobs = [
 
 const Experience = () => {
   return jobs.map(experience => (
-    <div key={experience.key} className="bb">
+    <div key={experience.key} className="mb4">
       <h3>{experience.title}</h3>
       <h3>{experience.dates}</h3>
       <ul>

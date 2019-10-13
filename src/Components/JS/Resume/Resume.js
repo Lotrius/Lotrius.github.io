@@ -1,4 +1,13 @@
 import React, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faBriefcase,
+  faSchool,
+  faVolleyballBall,
+  faLaptopCode,
+  faLanguage
+} from '@fortawesome/free-solid-svg-icons';
+import { faWindows } from '@fortawesome/free-brands-svg-icons';
 
 import '../../CSS/Resume.css';
 import Experience from './Experience';
@@ -56,72 +65,106 @@ class Resume extends Component {
 
   render() {
     return (
-      <div className="row">
+      <div className="h-100">
         {/* COLUMN - General */}
-        <div className="col-6">
-          <a
-            className="f2"
-            href="../../../resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Download Here
-          </a>
+        <a
+          className="f2"
+          href="../../../resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Download Here
+        </a>
 
-          <div>
+        {/* Experience */}
+        <div className="row bb bt flex items-center justify-center">
+          <div className="col-3 tc">
             <h1>Experience</h1>
-            <Experience />
+            <FontAwesomeIcon className="mt-4 fa-3x" icon={faBriefcase} />
           </div>
 
-          {/* Education */}
-          <div className="bb mb5">
-            <h1 className="f1">Education</h1>
+          <div className="col-9 bl">
+            <Experience />
+          </div>
+        </div>
+
+        {/* Education */}
+        <div className="row bb flex items-stretch items-center justify-center">
+          <div className="col-3 tc pb4">
+            <h1>Education</h1>
+            <FontAwesomeIcon className="tc mt-4 fa-3x" icon={faSchool} />
+          </div>
+
+          <div className="col-9 bl">
             <h3>Vassar College (Poughkeepsie, NY)</h3>
             <ul>
               <li>
                 <h5>GPA: 3.76</h5>
               </li>
+              <li>
+                <h5>Bachelor of Arts in Computer Science</h5>
+              </li>
             </ul>
-          </div>
-
-          {/* Extracurriculars */}
-          <div>
-            <h1>Extracurricular Activities</h1>
-            <div>
-              <h3>Barefoot Monkeys</h3>
-              <ul>
-                <li key="bfm">
-                  <h5>
-                    Put on circus shows and performances in Vassar College’s
-                    student-run circus troupe
-                  </h5>
-                </li>
-              </ul>
-            </div>
           </div>
         </div>
 
-        {/* COLUMN - Skills */}
-        <div className="col-6">
-          {/* Computer */}
-          <div className="bb">
+        {/* Extracurriculars */}
+        <div className="row bb flex items-stretch items-center justify-center">
+          <div className="col-3 tc pb4">
+            <h1>Extracurricular Activities</h1>
+            <FontAwesomeIcon
+              className="tc mt-4 fa-3x"
+              icon={faVolleyballBall}
+            />
+          </div>
+
+          <div className="col-9 bl">
+            <h3>Barefoot Monkeys</h3>
+            <ul>
+              <li key="bfm">
+                <h5>
+                  Put on circus shows and performances in Vassar College’s
+                  student-run circus troupe
+                </h5>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Computer languages */}
+        <div className="row bb flex items-center justify-center">
+          <div className="col-3 tc">
             <h1>Computer Languages/Frameworks</h1>
+            <FontAwesomeIcon className="tc mt-4 fa-3x" icon={faLaptopCode} />
+          </div>
+
+          <div className="col-9 bl">
             <ul>
               <Fluency list={this.compLanguages} />
             </ul>
           </div>
+        </div>
 
-          {/* Languages */}
-          <div className="bb">
+        <div className="row bb flex items-center justify-center">
+          <div className="col-3 tc">
             <h1>Languages</h1>
+            <FontAwesomeIcon className="tc mt-4 fa-3x" icon={faLanguage} />
+          </div>
+
+          <div className="col-9 bl">
             <ul>
               <Fluency list={this.languages} />
             </ul>
           </div>
+        </div>
 
-          {/* Software */}
-          <div className="bb">
+        <div className="row flex items-center justify-center">
+          <div className="col-3 tc">
             <h1>Software</h1>
+            <FontAwesomeIcon className="tc mt-4 fa-3x" icon={faWindows} />
+          </div>
+
+          <div className="col-9 bl">
             <ul>
               <Fluency list={this.software} />
             </ul>
