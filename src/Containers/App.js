@@ -5,7 +5,7 @@ import 'tachyons';
 import 'animate.css';
 
 import Nav from '../Components/JS/Nav/Nav';
-import '../Components/CSS/general.css';
+import '../Components/CSS/General.css';
 
 // Code splitting with loadable component
 const Home = loadable(() => import('../Components/JS/Home/Home'));
@@ -28,6 +28,13 @@ const App = () => {
         </Switch>
       </Suspense>
     </Router>
+    // <div>
+    //   {/* <Nav /> */}
+    //   <Home />
+    //   <Projects />
+    //   <Resume />
+    //   <Contact />
+    // </div>
   );
 };
 

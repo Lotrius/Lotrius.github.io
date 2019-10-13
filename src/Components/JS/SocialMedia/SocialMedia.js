@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const SocialMedia = ({ socialMediaList, path }) => {
   return socialMediaList.map(desc => (
     <a
+      className={`${path === 'contact' ? 'mr3 dib tc' : null}`}
       key={desc.id}
       id={desc.id}
       href={desc.link}
@@ -14,7 +15,7 @@ const SocialMedia = ({ socialMediaList, path }) => {
       target="_blank"
     >
       <FontAwesomeIcon
-        className="mt-4 fa-3x black"
+        className="mt-4 fa-3x black "
         style={{
           color: `${
             desc.id === 'fb' && path === 'home'

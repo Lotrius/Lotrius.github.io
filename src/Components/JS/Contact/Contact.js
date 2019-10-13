@@ -134,7 +134,7 @@ class Contact extends Component {
   render() {
     const { submitText, visibile, animation } = this.state;
     return (
-      <section className="mb-4 ml4 mr4">
+      <section className="mb4 ml4 mr4">
         {/* <!--Section heading--> */}
         <h2 className="shake h1-responsive font-weight-bold text-center my-4">
           Contact
@@ -146,7 +146,7 @@ class Contact extends Component {
           hesitate to do so. I will try to get back to you ASAP.
         </p>
 
-        <div className="row mb5">
+        <div className="row mb2">
           {/* <!--Grid column form--> */}
           <div className="col-lg-12 mb-md-0 mb-5">
             <form
@@ -246,33 +246,31 @@ class Contact extends Component {
           </div>
         </div>
 
-        <div className="row">
-          {/* Side Icons */}
-          <div>
-            <h2 className="contact">Other Contact Methods</h2>
-            <ul className="list-unstyled mb-0 row tc">
-              <div className="row contact">
-                {/* Phone number */}
-                <li>
-                  <FontAwesomeIcon className="mt-4 fa-3x" icon={faPhone} />
-                  <p>(917) 502-0579</p>
-                </li>
+        {/* Contact Methods */}
+        <div>
+          <h2 className="contact">Other Contact Methods</h2>
+          <div className="row">
+            <div className="contact flex justify-start">
+              {/* Phone number */}
+              <div className="dib tc mr3">
+                <FontAwesomeIcon className="mt-4 fa-3x" icon={faPhone} />
+                <p>(917) 502-0579</p>
+              </div>
 
-                {/* Email */}
-                <li>
-                  <FontAwesomeIcon className="mt-4 fa-3x" icon={faEnvelope} />
-                  <p>skim7420@gmail.com</p>
-                </li>
+              {/* Email */}
+              <div className="dib tc mr3">
+                <FontAwesomeIcon className="mt-4 fa-3x" icon={faEnvelope} />
+                <p>skim7420@gmail.com</p>
               </div>
 
               {/* Social Media List */}
-              <div className="contact row">
-                <SocialMedia
-                  socialMediaList={this.socialMediaList}
-                  path="contact"
-                />
-              </div>
-            </ul>
+            </div>
+            <div className="contact flex justify-start">
+              <SocialMedia
+                socialMediaList={this.socialMediaList}
+                path="contact"
+              />
+            </div>
           </div>
         </div>
       </section>
