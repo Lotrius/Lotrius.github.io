@@ -16,6 +16,7 @@ import ResumeItem from './ResumeItem';
 class Resume extends Component {
   constructor() {
     super();
+    // Fluencies
     this.compLanguages = [
       { item: 'PostgreSQL', fluency: 9 },
       {
