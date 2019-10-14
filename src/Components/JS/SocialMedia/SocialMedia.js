@@ -15,7 +15,7 @@ const SocialMedia = ({ socialMediaList, path }) => {
       target="_blank"
     >
       <FontAwesomeIcon
-        className="mt-4 fa-3x black "
+        className="mt-4 fa-3x black"
         style={{
           color: `${
             desc.id === 'fb' && path === 'home'

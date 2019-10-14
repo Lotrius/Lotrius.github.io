@@ -1,7 +1,8 @@
+/* eslint-disable react/forbid-prop-types */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-// TODO: REMOVE REDUNTANT CODE THROUGHOUT RESUME FILE
 class Fluency extends Component {
   addDots = fluency => {
     const dot = (
@@ -18,43 +19,46 @@ class Fluency extends Component {
         </div>
       </div>
     );
-
-    // for (let i = 0; i < 10; i++) {
-    //   dot.push(
-    //     <span
-    //       className="mr1"
-    //       key={i}
-    //       style={{
-    //         height: '10px',
-    //         width: '10px',
-    //         backgroundColor: i >= fluency ? '#bbb' : '#8b0000',
-    //         borderRadius: '50%',
-    //         display: 'inline-block'
-    //       }}
-    //     />
-    //   );
-    // }
     return dot;
   };
 
   render() {
-    const { list } = this.props;
-    return list.map(listItem => (
-      <li key={listItem.item} className=" relative overflow-auto pt3 pb3">
-        <h3 className="mr3">{listItem.item}</h3>
-        {this.addDots(listItem.fluency)}
-      </li>
-    ));
+    const { language, title, icon } = this.props;
+    return (
+      <div
+        className={`flex flex-column ${title === 'Software' ? null : 'br'}`}
+        style={{ flex: 1 }}
+      >
+        <div className="flex justify-center">
+          <p className="pt2 tc f4">{title}</p>
+          <FontAwesomeIcon className="ml3 mt2 fa-2x black" icon={icon} />
+        </div>
+
+        {language.map((listItem, index) => (
+          <li
+            // eslint-disable-next-line react/no-array-index-key
+            key={title + index}
+            className=" relative overflow-auto pt3 pb3"
+          >
+            <p>{listItem.item}</p>
+            {this.addDots(listItem.fluency)}
+          </li>
+        ))}
+      </div>
+    );
   }
 }
 
 export default Fluency;
 
 Fluency.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  list: PropTypes.array
+  language: PropTypes.array,
+  title: PropTypes.string,
+  icon: PropTypes.object
 };
 
 Fluency.defaultProps = {
-  list: null
+  language: null,
+  title: null,
+  icon: null
 };

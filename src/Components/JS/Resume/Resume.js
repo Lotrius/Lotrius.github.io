@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {
   faBriefcase,
   faSchool,
-  faVolleyballBall,
   faLaptopCode,
   faLanguage
 } from '@fortawesome/free-solid-svg-icons';
@@ -10,10 +9,9 @@ import { faWindows } from '@fortawesome/free-brands-svg-icons';
 
 import '../../CSS/Resume.css';
 
-import Experience from './Experience';
 import Fluency from './Fluency';
 import ResumeItem from './ResumeItem';
-import DiffResumeItem from './DiffResumeItem';
+import ResumeItemLanguages from './ResumeItemLanguages';
 
 class Resume extends Component {
   constructor() {
@@ -69,114 +67,120 @@ class Resume extends Component {
     this.experience = {
       title: 'Experience',
       icon: faBriefcase,
-      details: <Experience />
+      details: [
+        {
+          key: 'IT',
+          title: 'IT Generalist',
+          company: 'Industrial Bank of Korea New York Branch',
+          location: 'New York, NY',
+          startDate: 'Oct 2018',
+          endDate: 'Apr 2019',
+          description:
+            'General IT job involving maintaining/updating servers, gathering data from databses, updating IT procedures, and spreading cybersecurity awareness'
+        },
+        {
+          key: 'BFMTreasurer',
+          title: 'Barefoot Monkeys Treasurer',
+          company: 'Vassar College Barefoot Monkeys',
+          location: 'Poughkeepsie, NY',
+          startDate: 'Aug 2017',
+          endDate: 'May 2018',
+          description:
+            'Managed club funds and helped run club on an executive level'
+        },
+        {
+          key: 'Drill',
+          title: 'Japanese Language Drill Instructor',
+          company: 'Vassar College',
+          location: 'Poughkeepsie, NY',
+          startDate: 'Sep 2016',
+          endDate: 'May 2018',
+          description:
+            'Taught Japanese language and culture to first year Japanese language students'
+        },
+        {
+          key: 'Research',
+          title: 'Hispanic Studies Research Assistant',
+          company: 'Vassar College Barefoot Monkeys ',
+          location: 'Poughkeepsie, NY',
+          startDate: 'Sep 2014',
+          endDate: 'May 2016',
+          description:
+            'Helped professors gather research materials for their classes'
+        }
+      ]
     };
     this.education = {
       title: 'Education',
       icon: faSchool,
-      details: (
-        <div>
-          <h3>Vassar College (Poughkeepsie, NY)</h3>
-          <ul>
-            <li>
-              <h5>GPA: 3.76</h5>
-            </li>
-            <li>
-              <h5>Bachelor of Arts in Computer Science</h5>
-            </li>
-          </ul>
-        </div>
-      )
+      details: [
+        {
+          key: 'Vassar',
+          title: 'Vassar College',
+          company: 'Vassar College',
+          location: 'Poughkeepsie, NY',
+          startDate: 'Sep 2014',
+          endDate: 'May 2018',
+          description:
+            'Bachelor of Arts in Computer Science with a correlate in Japanese'
+        }
+      ]
     };
-    this.extracurriculars = {
-      title: 'Extracurricular Activities',
-      icon: faVolleyballBall,
-      details: (
-        <div>
-          <h3>Barefoot Monkeys</h3>
-          <ul>
-            <li key="bfm">
-              <h5>
-                Put on circus shows and performances in Vassar College’s
-                student-run circus troupe
-              </h5>
-            </li>
-          </ul>
-        </div>
-      )
-    };
-    this.computer = {
-      title: 'Computer Languages/Frameworks',
-      icon: faLaptopCode,
-      details: (
-        <div>
-          <ul>
-            <Fluency list={this.compLanguages} />
-          </ul>
-        </div>
-      )
-    };
-    this.spokenLanguages = {
-      title: 'Languages',
-      icon: faLanguage,
-      details: (
-        <div>
-          <ul>
-            <Fluency list={this.languages} />
-          </ul>
-        </div>
-      )
-    };
-    this.softwarePrograms = {
-      title: 'Software',
-      icon: faWindows,
-      details: (
-        <div>
-          <ul>
-            <Fluency list={this.software} />
-          </ul>
-        </div>
-      )
+    this.fluencies = {
+      details: [
+        {
+          key: 'Computer',
+          icon: faLaptopCode,
+          title: 'Computer Languages/Frameworks',
+          language: this.compLanguages
+        },
+        {
+          key: 'Lanuage',
+          icon: faLanguage,
+          title: 'Languages',
+          language: this.languages
+        },
+        {
+          key: 'Software',
+          icon: faWindows,
+          title: 'Software',
+          language: this.software
+        }
+      ]
     };
   }
 
   render() {
     return (
       <div className="h-100">
-        {/* COLUMN - General */}
-        <a
-          className="f2"
-          href="../../../resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Download Here
-        </a>
-
         {/* Experience */}
-        <div className="flex justify-around">
-          <DiffResumeItem item={this.experience} />
+        <div>
+          <h1 className="ml3">Experience</h1>
+          <ResumeItem item={this.experience} />
         </div>
 
-        <div className="row flex justify-around">
-          {/* Education */}
-
-          <DiffResumeItem item={this.education} />
-
-          {/* Extracurriculars */}
-          <DiffResumeItem item={this.extracurriculars} />
+        {/* Education */}
+        <div>
+          <h1 className="ml3">Education</h1>
+          <ResumeItem item={this.education} />
         </div>
 
-        <div className="row flex justify-around">
-          {/* Computer languages */}
-          <DiffResumeItem item={this.computer} />
-
-          {/* Languages */}
-          <DiffResumeItem item={this.spokenLanguages} />
-
-          {/* Software */}
-          <DiffResumeItem item={this.softwarePrograms} />
+        {/* Fluencies */}
+        <div>
+          <h1 className="ml3">Skills</h1>
+          <ResumeItemLanguages item={this.fluencies} />
         </div>
+
+        <p className="f3">
+          Download full resume&nbsp;
+          <a
+            href="../../../resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            here
+          </a>
+        </p>
       </div>
     );
   }
