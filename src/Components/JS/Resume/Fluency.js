@@ -26,7 +26,7 @@ class Fluency extends Component {
     const { language, title, icon } = this.props;
     return (
       <div
-        className={`flex flex-column ${title === 'Software' ? null : 'br'}`}
+        className={`languages flex flex-column ${title === 'Software' ? null : 'br'}`}
         style={{ flex: 1 }}
       >
         <div className="flex justify-center">
@@ -34,11 +34,13 @@ class Fluency extends Component {
           <FontAwesomeIcon className="ml3 mt2 fa-2x black" icon={icon} />
         </div>
 
+        <hr style={{width: '100%'}}/>
+
         {language.map((listItem, index) => (
           <li
             // eslint-disable-next-line react/no-array-index-key
             key={title + index}
-            className=" relative overflow-auto pt3 pb3"
+            className="relative overflow-auto pt3 pb3"
           >
             <p>{listItem.item}</p>
             {this.addDots(listItem.fluency)}

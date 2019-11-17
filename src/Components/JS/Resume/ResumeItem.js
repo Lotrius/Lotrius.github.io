@@ -4,10 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const ResumeItem = ({ item }) => {
   return item.details.map(deet => (
-    <div key={deet.key} className="ml3 w-90 mb4">
-      <div className="ml5 row">
+    <div key={deet.key} className="items ml3 w-90 mb4">
+      <div className="details ml5 row">
         {/* Side details */}
-        <div className="tc w-10 ba">
+        <div className="icon tc w-10 ba">
           <FontAwesomeIcon className="mt-4 fa-2x" icon={item.icon} />
           <div className="mt2">
             <p>{deet.startDate}</p>
@@ -16,10 +16,10 @@ const ResumeItem = ({ item }) => {
         </div>
 
         {/* Description */}
-        <div className="bt bb br w-90 pl4">
-          <div className="flex justify-between">
-            <p className="pt2 f4">{deet.title}</p>
-            <p className="pt2 f4 mr3">{deet.location}</p>
+        <div className="desc bt bb br w-90 pl4">
+          <div className="joblocation flex justify-between">
+            <p className="job pt2 f4">{deet.title}</p>
+            <p className="location pt2 f4 mr3">{deet.location}</p>
           </div>
 
           {/* Company */}

@@ -9,7 +9,6 @@ import { faWindows } from '@fortawesome/free-brands-svg-icons';
 
 import '../../CSS/Resume.css';
 
-import Fluency from './Fluency';
 import ResumeItem from './ResumeItem';
 import ResumeItemLanguages from './ResumeItemLanguages';
 
@@ -171,7 +170,7 @@ class Resume extends Component {
           <ResumeItemLanguages item={this.fluencies} />
         </div>
 
-        <p className="f3">
+        <p className="ml3 f3">
           Download full resume&nbsp;
           <a
             href="../../../resume.pdf"

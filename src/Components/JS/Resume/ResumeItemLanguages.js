@@ -3,14 +3,11 @@ import PropTypes from 'prop-types';
 import Fluency from './Fluency';
 
 const ResumeItemLanguages = ({ item }) => {
-  // title
-  // icon
-  // detail
   return (
-    <div className="ml3 w-90 mb4">
-      <div className="ml5 row">
+    <div className="items ml3 w-90 mb4">
+      <div className="details ml5 row">
         {/* Description */}
-        <div className="ba w-100 flex justify-around">
+        <div className="fluencyrow ba w-100 flex">
           {item.details.map(deet => (
             <Fluency
               key={deet.key}
