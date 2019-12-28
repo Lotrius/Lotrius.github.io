@@ -28,13 +28,6 @@ const App = () => {
         </Switch>
       </Suspense>
     </Router>
-    // <div>
-    //   {/* <Nav /> */}
-    //   <Home />
-    //   <Projects />
-    //   <Resume />
-    //   <Contact />
-    // </div>
   );
 };
 
