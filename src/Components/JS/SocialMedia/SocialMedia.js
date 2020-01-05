@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const SocialMedia = ({ socialMediaList, path }) => {
   return socialMediaList.map(desc => (
     <a
-      className={`${path === 'contact' ? 'mr3 dib tc' : null}`}
+      className={`${path === 'contact' ? 'mr4 dib tc' : null}`}
       key={desc.id}
       id={desc.id}
       href={desc.link}
