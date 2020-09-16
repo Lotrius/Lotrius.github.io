@@ -54,9 +54,6 @@ class Contact extends Component {
     // Prevent refresh when submitted
     event.preventDefault();
 
-    // Regular expression to check if email in right format
-    const emailRE = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
     // Get text in fields
     const fields = {
       name: this.name.current,
@@ -65,24 +62,22 @@ class Contact extends Component {
       message: this.message.current,
     };
 
-    // Iterate through object and if there's a missing field,
-    // let user know
-    // eslint-disable-next-line no-restricted-syntax
-    for (const value of Object.values(fields)) {
-      if (!value.value) {
-        this.addSubmitMessage('fields');
-        return;
-      }
+    // Iterate through object and if there's a missing field, let user know
+    const emptyFields = this.checkForEmptyFields(fields);
+    if (emptyFields) {
+      this.addSubmitMessage('fields');
+      return;
     }
 
-    // If the email is not in a valid format,
-    // ask user to input valid email
-    if (!emailRE.test(fields.email.value)) {
+    // Check if email is in the correct format
+    // If it's not, let user know
+    const emailCorrectFormat = this.validateEmail(fields.email);
+    if (!emailCorrectFormat) {
       this.addSubmitMessage('email');
       return;
     }
 
-    // Otherwise call eto backend to send mail with appropriate fields
+    // Otherwise call backend to send mail with appropriate fields
     fetch('https://thawing-mesa-37094.herokuapp.com/send', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
@@ -97,7 +92,7 @@ class Contact extends Component {
     // Reset fields
     event.target.reset();
 
-    // If there's no success message already, add one
+    // Success!
     this.addSubmitMessage('success');
   };
 
@@ -133,6 +128,41 @@ class Contact extends Component {
           color: 'purple',
         });
     }
+  };
+
+  /**
+   * Checks if the form contains any empty fields
+   *
+   * @param {Object} fields object containing refs to current inputs
+   *
+   * @return {Boolean} boolean true if there are empty fields, false if not
+   */
+  checkForEmptyFields = (fields) => {
+    // eslint-disable-next-line no-restricted-syntax
+    for (const value of Object.values(fields)) {
+      if (!value.value) {
+        return true;
+      }
+    }
+    return false;
+  };
+
+  /**
+   * Checks the email input by the user and validates whether it is in an acceptable format
+   *
+   * @param {Object} email object containing ref to current email input
+   *
+   * @return {Boolean} if the email format is valid, returns true, otherwise false
+   */
+  validateEmail = (email) => {
+    // Regular expression to check if email in right format
+    const emailRE = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    // Checks whether email format is valid
+    if (emailRE.test(email.value)) {
+      return true;
+    }
+    return false;
   };
 
   /**
