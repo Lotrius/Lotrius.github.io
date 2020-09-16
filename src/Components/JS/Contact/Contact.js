@@ -83,7 +83,7 @@ class Contact extends Component {
     }
 
     // Otherwise call eto backend to send mail with appropriate fields
-    fetch('http://localhost:3000/send', {
+    fetch('https://thawing-mesa-37094.herokuapp.com/send', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
