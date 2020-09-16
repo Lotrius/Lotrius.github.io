@@ -18,6 +18,7 @@
       "error",
       {
         "semi": true,
+        "singleQuote": true,
         "endOfLine": "auto"
       }
     ]

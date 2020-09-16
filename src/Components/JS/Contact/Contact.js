@@ -40,7 +40,7 @@ class Contact extends Component {
     ];
     this.state = {
       submitText: '',
-      visibile: 'hidden',
+      visible: 'hidden',
       color: '',
     };
   }
@@ -51,47 +51,54 @@ class Contact extends Component {
    * @param {*} event what is triggered when the Submit button is pressed
    */
   sendMail = (event) => {
-    event.preventDefault(); // Prevent refresh when submitted
+    // Prevent refresh when submitted
+    event.preventDefault();
 
     // Regular expression to check if email in right format
     const emailRE = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     // Get text in fields
-    const name = this.name.current.value;
-    const email = this.email.current.value;
-    const subject = this.subject.current.value;
-    const message = this.message.current.value;
+    const fields = {
+      name: this.name.current,
+      email: this.email.current,
+      subject: this.subject.current,
+      message: this.message.current,
+    };
 
-    // If one of the fields is blank,
-    if (!(name && email && subject && message)) {
-      // If there's no error message already, add one
-      this.addMessage('fields');
-      return;
+    // Iterate through object and if there's a missing field,
+    // let user know
+    // eslint-disable-next-line no-restricted-syntax
+    for (const value of Object.values(fields)) {
+      if (!value.value) {
+        this.addSubmitMessage('fields');
+        return;
+      }
     }
 
     // If the email is not in a valid format,
-    if (!emailRE.test(email)) {
-      // Ask user to input valid email
-      this.addMessage('email');
+    // ask user to input valid email
+    if (!emailRE.test(fields.email.value)) {
+      this.addSubmitMessage('email');
       return;
     }
 
-    // Otherwise call to backend to send mail with appropriate fields
-    fetch('https://thawing-mesa-37094.herokuapp.com/send', {
+    // Otherwise call eto backend to send mail with appropriate fields
+    fetch('http://localhost:3000/send', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        name,
-        email,
-        subject,
-        text: message,
+        name: fields.name.value,
+        email: fields.email.value,
+        subject: fields.subject.value,
+        message: fields.message.value,
       }),
     });
 
-    event.target.reset(); // Reset fields
+    // Reset fields
+    event.target.reset();
 
     // If there's no success message already, add one
-    this.addMessage('success');
+    this.addSubmitMessage('success');
   };
 
   /**
@@ -100,8 +107,8 @@ class Contact extends Component {
    *
    * @param {String} type string representing what type of message to display
    */
-  addMessage = (type) => {
-    this.setState({ visibile: 'visible' }); // Set element to visible
+  addSubmitMessage = (type) => {
+    this.setState({ visible: 'visible' }); // Set element to visible
 
     // Set text
     switch (type) {
@@ -132,7 +139,7 @@ class Contact extends Component {
    * Renders the actual contact form
    */
   render() {
-    const { submitText, visibile, color } = this.state;
+    const { submitText, visible, color } = this.state;
     return (
       <section className="mb4 ml4 mr4">
         {/* <!--Section heading--> */}
@@ -166,11 +173,11 @@ class Contact extends Component {
                 <div className="col-md-6">
                   <div className="md-form mb-0">
                     <input
+                      className="form-control"
                       ref={this.name}
                       type="text"
                       id="name"
                       name="name"
-                      className="form-control"
                     />
                     <p>Name</p>
                   </div>
@@ -237,7 +244,7 @@ class Contact extends Component {
               <p
                 id="submit-message"
                 className={color}
-                style={{ visibility: visibile }}
+                style={{ visibility: visible }}
               >
                 &zwnj;
                 {submitText}
