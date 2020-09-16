@@ -3,7 +3,7 @@ import React from 'react';
 import {
   faLinkedin,
   faFacebook,
-  faGithub
+  faGithub,
 } from '@fortawesome/free-brands-svg-icons';
 import SocialMedia from '../SocialMedia/SocialMedia';
 
@@ -14,20 +14,20 @@ const socialMediaList = [
     id: 'fb',
     link: 'https://www.facebook.com/solomon.kim.319',
     alt: 'Facebook',
-    pic: faFacebook
+    pic: faFacebook,
   },
   {
     id: 'github',
     link: 'https://github.com/Lotrius',
     alt: 'Github',
-    pic: faGithub
+    pic: faGithub,
   },
   {
     id: 'linkedin',
     link: 'https://www.linkedin.com/in/solomon-kim/',
     alt: 'LinkedIn',
-    pic: faLinkedin
-  }
+    pic: faLinkedin,
+  },
 ];
 
 const Home = () => {

@@ -5,7 +5,7 @@ import { faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import {
   faLinkedin,
   faFacebook,
-  faGithub
+  faGithub,
 } from '@fortawesome/free-brands-svg-icons';
 import SocialMedia from '../SocialMedia/SocialMedia';
 
@@ -23,31 +23,31 @@ class Contact extends Component {
         id: 'fb',
         link: 'https://www.facebook.com/solomon.kim.319',
         alt: 'Facebook',
-        pic: faFacebook
+        pic: faFacebook,
       },
       {
         id: 'github',
         link: 'https://github.com/Lotrius',
         alt: 'Github',
-        pic: faGithub
+        pic: faGithub,
       },
       {
         id: 'linkedin',
         link: 'https://www.linkedin.com/in/solomon-kim/',
         alt: 'LinkedIn',
-        pic: faLinkedin
-      }
+        pic: faLinkedin,
+      },
     ];
     this.state = {
       submitText: '',
       visibile: 'hidden',
-      animation: ''
+      color: '',
     };
   }
 
   /* ////////////////////////////////////////////////////////////////////////// */
 
-  sendMail = event => {
+  sendMail = (event) => {
     event.preventDefault(); // Prevent refresh when submitted
 
     // Regular expression to check if email in right format
@@ -66,8 +66,9 @@ class Contact extends Component {
       return;
     }
 
+    // If the email is not in a valid format,
     if (!emailRE.test(email)) {
-      // If there's no success message already, add one
+      // Ask user to input valid email
       this.addMessage('email');
       return;
     }
@@ -80,8 +81,8 @@ class Contact extends Component {
         name,
         email,
         subject,
-        text: message
-      })
+        text: message,
+      }),
     });
 
     event.target.reset(); // Reset fields
@@ -92,47 +93,32 @@ class Contact extends Component {
 
   /* ////////////////////////////////////////////////////////////////////////// */
 
-  addMessage = type => {
+  addMessage = (type) => {
     this.setState({ visibile: 'visible' }); // Set element to visible
 
     // Set text
     switch (type) {
       case 'fields':
-        this.changeAnimationAndText(type);
+        this.setState({
+          submitText: 'Please fill out all fields',
+          color: 'red',
+        });
         break;
       case 'email':
-        this.changeAnimationAndText(type);
+        this.setState({
+          submitText: 'Please enter a valid email address',
+          color: 'red',
+        });
         break;
       default:
-        this.setState({ submitText: 'Message sent!', animation: 'green' });
+        this.setState({ submitText: 'Message sent!', color: 'green' });
     }
   };
 
   /* ////////////////////////////////////////////////////////////////////////// */
 
-  changeAnimationAndText = type => {
-    // Change to appropriate message and animation
-    this.setState(
-      {
-        submitText:
-          type === 'fields'
-            ? 'Please fill out all fields'
-            : 'Please enter a valid email address',
-        animation: 'red'
-      },
-      () =>
-        setTimeout(() => {
-          this.setState({
-            animation: 'animated shake red'
-          });
-        }, 100)
-    );
-  };
-
-  /* ////////////////////////////////////////////////////////////////////////// */
-
   render() {
-    const { submitText, visibile, animation } = this.state;
+    const { submitText, visibile, color } = this.state;
     return (
       <section className="mb4 ml4 mr4">
         {/* <!--Section heading--> */}
@@ -153,7 +139,7 @@ class Contact extends Component {
               id="contact-form"
               name="contact-form"
               onSubmit={this.sendMail}
-              onKeyPress={e => {
+              onKeyPress={(e) => {
                 if (
                   e.key === 'Enter' &&
                   document.activeElement.id !== 'message'
@@ -236,7 +222,7 @@ class Contact extends Component {
               {/* Submit message */}
               <p
                 id="submit-message"
-                className={animation}
+                className={color}
                 style={{ visibility: visibile }}
               >
                 &zwnj;
