@@ -1,0 +1,2 @@
+(this["webpackJsonplotrius.github.io"]=this["webpackJsonplotrius.github.io"]||[]).push([[9],{55:function(t,e,o){"use strict";o.r(e);var u=o(0),n=o.n(u);e.default=function(){return n.a.createElement("div",null,n.a.createElement("p",null,"Whoops you weren't supposed to come here why'd you do that"))}}}]);
+//# sourceMappingURL=9.ab16f0b2.chunk.js.map
