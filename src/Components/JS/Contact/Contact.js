@@ -45,8 +45,11 @@ class Contact extends Component {
     };
   }
 
-  /* ////////////////////////////////////////////////////////////////////////// */
-
+  /**
+   * Send the mail once the user fills out the form and presses the submit button
+   *
+   * @param {*} event what is triggered when the Submit button is pressed
+   */
   sendMail = (event) => {
     event.preventDefault(); // Prevent refresh when submitted
 
@@ -91,8 +94,12 @@ class Contact extends Component {
     this.addMessage('success');
   };
 
-  /* ////////////////////////////////////////////////////////////////////////// */
-
+  /**
+   * Sets the message displayed in the contact page when the user presses
+   * the Submit button
+   *
+   * @param {String} type string representing what type of message to display
+   */
   addMessage = (type) => {
     this.setState({ visibile: 'visible' }); // Set element to visible
 
@@ -110,13 +117,20 @@ class Contact extends Component {
           color: 'red',
         });
         break;
-      default:
+      case 'success':
         this.setState({ submitText: 'Message sent!', color: 'green' });
+        break;
+      default:
+        this.setState({
+          submitText: 'how did you even get this message',
+          color: 'purple',
+        });
     }
   };
 
-  /* ////////////////////////////////////////////////////////////////////////// */
-
+  /**
+   * Renders the actual contact form
+   */
   render() {
     const { submitText, visibile, color } = this.state;
     return (
