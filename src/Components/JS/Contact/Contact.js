@@ -2,11 +2,7 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import {
-  faLinkedin,
-  faFacebook,
-  faGithub,
-} from '@fortawesome/free-brands-svg-icons';
+import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 import SocialMedia from '../SocialMedia/SocialMedia';
 
 import '../../CSS/Contact.css';
@@ -19,12 +15,6 @@ class Contact extends Component {
     this.subject = React.createRef();
     this.message = React.createRef();
     this.socialMediaList = [
-      {
-        id: 'fb',
-        link: 'https://www.facebook.com/solomon.kim.319',
-        alt: 'Facebook',
-        pic: faFacebook,
-      },
       {
         id: 'github',
         link: 'https://github.com/Lotrius',

@@ -1,21 +1,12 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable global-require */
 import React from 'react';
-import {
-  faLinkedin,
-  faFacebook,
-  faGithub,
-} from '@fortawesome/free-brands-svg-icons';
+import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 import SocialMedia from '../SocialMedia/SocialMedia';
 
 import '../../CSS/Home.css';
 
 const socialMediaList = [
-  {
-    id: 'fb',
-    link: 'https://www.facebook.com/solomon.kim.319',
-    alt: 'Facebook',
-    pic: faFacebook,
-  },
   {
     id: 'github',
     link: 'https://github.com/Lotrius',
@@ -59,6 +50,7 @@ const Home = () => {
         {/* Description */}
         <div className="desc w-40">
           <p className="f1 b">Bio</p>
+          <p className="f3">Hello, and welcome to my website!</p>
           <p className="f3">
             I spend most of my days either coding things such as this website,
             juggling (read: dropping), or at the gym.
@@ -69,9 +61,11 @@ const Home = () => {
             projects.
           </p>
           <p className="f3">
-            I wonder how much more space I have to fill up before it looks
-            marginally acceptable and not just full of empty space. Yeah that
-            looks about good.
+            If you're interested, the code for this website can be found{' '}
+            <a href="https://github.com/Lotrius/Lotrius.github.io">here</a> for
+            the front end, and{' '}
+            <a href="https://github.com/Lotrius/lotrius.github.io-api">here</a>{' '}
+            for the back end.
           </p>
           <p style={{ color: 'rgb(243, 243, 237)' }}>
             i&apos;m v confused a lot tbh
