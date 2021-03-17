@@ -56,11 +56,6 @@ const Home = () => {
             juggling (read: dropping), or at the gym.
           </p>
           <p className="f3">
-            Ultimately I would like to be able to take my experience building
-            different types of applications into things like localization
-            projects.
-          </p>
-          <p className="f3">
             If you're interested, the code for this website can be found{' '}
             <a href="https://github.com/Lotrius/Lotrius.github.io">here</a> for
             the front end, and{' '}
